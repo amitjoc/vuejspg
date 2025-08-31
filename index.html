@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>My First VueJs Page</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+    </head>
+    <body>
+        <div id="app">
+            <h1>String Message: {{message}}</h1>
+            <h2>stirng character as array indexed also: {{message[8]}}</h2>  
+            <p>Random number: {{randomNumber()}}</p>
+            <p>Lucky Numbers Array: {{luckeyNumbers}} :: {{luckeyNumbers[2]}}</p>
+            <p>Person Object:: {{personObject}}</p>
+            <p>{{personObject.name}}</p>
+        </div>  
+    </body>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+        setup() {
+
+            const message = 'Hello-from Vuejs world!';
+            const luckeyNumbers = [3, 7, 13, 21];
+            const personObject = {
+                name: 'Amit Joshi',
+                age: 30,
+                city: 'Delhi'
+            };
+
+            // Method to generate random number between 1 to 10
+            function randomNumber() {
+                return Math.floor(Math.random() * 10)+1;
+            }
+
+            return {
+                message,
+                luckeyNumbers,personObject,randomNumber,
+            };
+        },
+    }).mount('#app');
+  </script>
+
+</html>
